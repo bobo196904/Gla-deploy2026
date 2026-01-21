@@ -1,185 +1,131 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>玩具导航页</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+<title>玩具王国 Toy Kingdom</title>
 <style>
-:root{
-    --c1:#ff9a9e;
-    --c2:#fad0c4;
-    --c3:#a1c4fd;
-    --c4:#c2e9fb;
-}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family: "微软雅黑",sans-serif; color:#333;}
+    header{
+        background:#ffcc00;
+        text-align:center;
+        padding:40px 20px;
+    }
+    header h1{font-size:3rem; color:#222;}
+    header p{font-size:1.2rem; margin-top:8px;}
 
-*{box-sizing:border-box;}
+    .btn-primary{
+        display:inline-block;
+        margin-top:15px;
+        padding:12px 25px;
+        background:#e63946;
+        color:#fff;
+        text-decoration:none;
+        font-weight:600;
+        border-radius:50px;
+        transition:0.3s;
+    }
+    .btn-primary:hover{background:#bf1f2d;}
 
-body{
-    margin:0;
-    padding:20px;
-    font-family:"Comic Sans MS","微软雅黑",sans-serif;
-    background: linear-gradient(135deg,var(--c1),var(--c3));
-    min-height:100vh;
-}
+    .hero{
+        background-image:url("https://placehold.co/1200x500?text=玩具王国 Banner");
+        background-size:cover;
+        background-position:center;
+        height:500px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+    .hero h2{
+        color:#fff;
+        font-size:2.8rem;
+    }
 
-/* 顶部标题 */
-.header{
-    text-align:center;
-    font-size:32px;
-    color:#fff;
-    margin-bottom:20px;
-    text-shadow:2px 2px 0 rgba(0,0,0,.2);
-}
+    .products{
+        max-width:1200px;
+        margin:40px auto;
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap:20px;
+        padding:0 20px;
+    }
+    .toy-card{
+        border:1px solid #eee;
+        border-radius:6px;
+        overflow:hidden;
+        transition:0.3s;
+    }
+    .toy-card:hover{
+        transform:translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .toy-card img{width:100%;}
 
-/* 搜索框 */
-.search-container{
-    max-width:520px;
-    margin:0 auto 30px;
-}
+    .toy-card .info{
+        padding:12px;
+        text-align:center;
+    }
+    .toy-card .info h3{font-size:1.2rem; margin-bottom:8px;}
+    .toy-card .info p{font-size:0.95rem; color:#666;}
 
-.search-box{
-    width:100%;
-    padding:16px 22px;
-    font-size:20px;
-    border:none;
-    border-radius:30px;
-    outline:none;
-    background:#fff;
-    box-shadow:0 6px 0 rgba(0,0,0,.15);
-}
-
-/* 容器 */
-.container{
-    max-width:1000px;
-    margin:0 auto;
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:16px;
-}
-
-/* 玩具按钮 */
-.link-item{
-    background: linear-gradient(180deg,#fff,#f1f1f1);
-    border-radius:22px;
-    height:90px;
-    box-shadow:
-        0 6px 0 rgba(0,0,0,.15),
-        inset 0 -4px 0 rgba(0,0,0,.05);
-    transition:.15s;
-}
-
-.link-item:hover{
-    transform: translateY(3px);
-    box-shadow:
-        0 3px 0 rgba(0,0,0,.15),
-        inset 0 -2px 0 rgba(0,0,0,.05);
-}
-
-.link-item a{
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    color:#333;
-}
-
-/* 图标 */
-.link-icon{
-    font-size:26px;
-    margin-bottom:6px;
-}
-
-img.link-icon{
-    width:28px;
-    height:28px;
-}
-
-/* 文本 */
-.link-text{
-    font-size:15px;
-    font-weight:bold;
-}
-
-/* 页脚 */
-.foot_marker{
-    margin-top:40px;
-    text-align:center;
-    color:#fff;
-    font-size:13px;
-    opacity:.8;
-}
-
-.foot_marker a{
-    color:#fff;
-    text-decoration:none;
-}
+    footer{
+        background:#222;
+        color:#fff;
+        text-align:center;
+        padding:20px;
+        margin-top:40px;
+        font-size:0.85rem;
+    }
 </style>
 </head>
-
 <body>
 
-<div class="header">🧸 我的玩具导航盒</div>
+<header>
+    <h1>玩具王国 Toy Kingdom</h1>
+    <p>孩子们的快乐工厂，乐趣无穷！</p>
+    <a href="#products" class="btn-primary">立即探索玩具</a>
+</header>
 
-<div class="search-container">
-    <form action="https://www.google.com/search" method="get" target="_blank">
-        <input class="search-box" name="q" placeholder="🔍 搜索世界">
-    </form>
-</div>
+<section class="hero">
+    <h2>发现属于孩子的奇妙世界！</h2>
+</section>
 
-<div class="container">
+<section id="products" class="products">
+    <div class="toy-card">
+        <img src="https://placehold.co/300x200?text=遥控车" alt="遥控车">
+        <div class="info">
+            <h3>极速遥控车</h3>
+            <p>高性能电动遥控，速度与激情。</p>
+        </div>
+    </div>
+    <div class="toy-card">
+        <img src="https://placehold.co/300x200?text=积木套装" alt="积木套装">
+        <div class="info">
+            <h3>创意积木套装</h3>
+            <p>释放想象力，无限组合玩法。</p>
+        </div>
+    </div>
+    <div class="toy-card">
+        <img src="https://placehold.co/300x200?text=毛绒玩具" alt="毛绒玩具">
+        <div class="info">
+            <h3>萌趣毛绒玩具</h3>
+            <p>柔软可爱，陪伴每一个温暖时刻。</p>
+        </div>
+    </div>
+    <div class="toy-card">
+        <img src="https://placehold.co/300x200?text=拼图游戏" alt="拼图游戏">
+        <div class="info">
+            <h3>趣味拼图游戏</h3>
+            <p>开发思维，寓教于乐。</p>
+        </div>
+    </div>
+</section>
 
-<div class="link-item">
-<a href="https://www.google.com" target="_blank">
-<img class="link-icon" src="https://www.google.com/favicon.ico">
-<span class="link-text">Google</span>
-</a>
-</div>
-
-<div class="link-item">
-<a href="https://www.youtube.com" target="_blank">
-<img class="link-icon" src="https://www.youtube.com/favicon.ico">
-<span class="link-text">YouTube</span>
-</a>
-</div>
-
-<div class="link-item">
-<a href="https://github.com" target="_blank">
-<img class="link-icon" src="https://github.com/favicon.ico">
-<span class="link-text">GitHub</span>
-</a>
-</div>
-
-<div class="link-item">
-<a href="https://chat.openai.com" target="_blank">
-<i class="fa-solid fa-robot link-icon"></i>
-<span class="link-text">ChatGPT</span>
-</a>
-</div>
-
-<div class="link-item">
-<a href="https://dash.cloudflare.com" target="_blank">
-<i class="fa-solid fa-cloud link-icon"></i>
-<span class="link-text">Cloudflare</span>
-</a>
-</div>
-
-<div class="link-item">
-<a href="https://ip.sb" target="_blank">
-<i class="fa-solid fa-location-dot link-icon"></i>
-<span class="link-text">IP 查询</span>
-</a>
-</div>
-
-</div>
-
-<div class="foot_marker">
-🎮 Powered by eooce
-</div>
+<footer>
+    &copy; 2026 玩具王国 Toy Kingdom 保留所有权利
+</footer>
 
 </body>
 </html>
