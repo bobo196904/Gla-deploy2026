@@ -1,19 +1,17 @@
-FROM node:18-alpine
-
-# 设置工作目录
-WORKDIR /app
-
-# 先复制 package.json（利用 Docker 缓存）
-COPY package*.json ./
-
-# 安装依赖
-RUN npm install --production
-
-# 再复制所有源代码
-COPY . .
-
-# 如果你的 index.js 里监听的是 3000 端口，就保留
-EXPOSE 3000
-
-# 启动服务
-CMD ["npm", "start"]
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "node",
+  "main": "index.js",
+  "private": false,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "latest",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
